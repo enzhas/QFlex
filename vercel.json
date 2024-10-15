@@ -1,15 +1,11 @@
 {
-    "version": 2,
-    "builds": [
-        {
-            "src": "qflexProject/wsgi.py",
-            "use": "@vercel/python"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "qflexProject/wsgi.py"
-        }
-    ]
+  "builds": [
+    {
+      "src": "path/to/your/manage.py",
+      "use": "@vercel/python",
+      "config": {
+        "pythonVersion": "3.11"
+      }
+    }
+  ]
 }
