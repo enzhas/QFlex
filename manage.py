@@ -24,6 +24,7 @@ if __name__ == '__main__':
 application = get_wsgi_application()
 
 def vercel_app(environ, start_response):
+    from wsgi import application
     return application(environ, start_response)
 
 # This line is crucial
