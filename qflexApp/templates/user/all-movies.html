@@ -1,0 +1,60 @@
+{% extends '../base.html' %}
+
+{% block title %}All Movies{% endblock %}
+
+{% block content %}
+    <div class="top-ten">
+        <div class="container">
+            <h2 class="mt-5 mb-5">All Movies</h2>
+            <div class="row">
+                <!-- Sidebar Section (Genres & Search) -->
+                <div class="col-md-4">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h3 class="mb-4">Search</h3>
+                            <form action="{% url 'allMovies' %}">
+                                <div class="input-group mb-3">
+                                    <input type="search" name="search" class="form-control" placeholder="Film name, description">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-dark" id="search-button">
+                                            <i class="fas fa-search"></i> <!-- Font Awesome Icon -->
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>                            
+                            <h3 class="mb-3">Genres</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="{% url 'allMovies' %}" class="text-dark">All</a>
+                                </li>
+                                {% for genre in genres %}
+                                <li class="list-group-item">
+                                    <a href="{% url 'filterMovies' slug=genre.slug %}" class="text-dark">{{ genre.genreName }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Movies Section -->
+                <div class="col-md-8">
+                    <div class="row">
+                        {% for movie in movies %}
+                        <div class="col-md-6 mb-4">
+                            <div class="card shadow-sm h-100">
+                                <img src="{{ movie.poster }}" class="card-img-top" alt="{{ movie.movieName }}" style="height: 350px; object-fit: cover;">
+                                <div class="card-body">
+                                    <h4 class="card-title">{{ movie.movieName }}</h4>
+                                    <p class="card-text">{{ movie.description|truncatewords:20 }}</p>
+                                    <a href="{% url 'movieDetail' pk=movie.pk %}" class="btn btn-dark">Watch</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

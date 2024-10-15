@@ -1,0 +1,219 @@
+/* Секция баннера */
+#banner { 
+    color: #ffffff;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../img/banner.jpeg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center; /* Горизонтальное выравнивание */
+    align-items: center; /* Вертикальное выравнивание */
+    text-align: center;
+}
+
+#banner h1 {
+    font-size: 45px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-in-out; /* Анимация */
+}
+
+#banner p {
+    width: 60%;
+    text-align: justify;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 auto;
+    animation: fadeInUp 1s ease-in-out; /* Анимация */
+}
+
+#search-button {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    display: inline-block;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+    background-color: #0056b3;
+    cursor: pointer;
+}
+
+#search-button i {
+    margin-right: 5px; /* Отступ между иконкой и текстом */
+    font-size: 16px; /* Размер иконки */
+    vertical-align: middle;
+}
+
+.card {
+    border: none;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Movie Image Styling */
+.card-img-top {
+    width: 100%;  /* Make the image take full width of the card */
+    height: 300px;  /* Set a fixed height for all images */
+    object-fit: cover;  /* Ensures the image scales properly and maintains its aspect ratio */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Recommended Movies */
+.recommended .card {
+    background-color: #fff;
+    margin-bottom: 30px;
+}
+
+.recommended h4 {
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.recommended h6 {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.recommended p {
+    color: #555;
+}
+
+/* Top 10 Movies */
+.top-ten .card {
+    background-color: #fff;
+}
+
+.top-ten .card h5 {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Carousel Styles */
+.owl-carousel .item {
+    display: flex;
+    justify-content: center;
+}
+
+.owl-carousel .card {
+    max-width: 250px;
+    margin: 10px;
+}
+
+.owl-carousel .card-body {
+    padding: 15px;
+}
+
+.owl-carousel .btn-dark {
+    background-color: #333;
+    border: none;
+}
+
+/* Button Styles */
+.btn-dark {
+    background-color: #000;
+    color: #fff;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-dark:hover {
+    background-color: #555;
+}
+
+/* Spacing */
+.mb-4, .my-5 {
+    margin-bottom: 2rem !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.mt-5 {
+    margin-top: 2rem !important;
+}
+
+.mb-5 {
+    margin-bottom: 2rem !important;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+form button.btn {
+    display: block;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.helptext {
+    display: block;
+    margin-bottom: 10px;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media screen and (max-width: 900px) {
+    #banner h1 {
+        font-size: 28px;
+        font-weight: 700;
+    }
+    
+    #banner p {
+        width: 90%;
+        font-size: 14px;
+    }
+}
+
+/* Анимации */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

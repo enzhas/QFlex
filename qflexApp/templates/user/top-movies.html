@@ -1,0 +1,57 @@
+{% extends '../base.html' %}
+
+{% block title %}Top Movies{% endblock %}
+
+{% block content %}
+    <!-- Recommended Movies Section -->
+    <section class="recommended my-5">
+        <div class="container">
+            <h2 class="mb-4">Recommended Movies</h2>
+            <div class="row">
+                {% for m in movie %}
+                    {% if m.isRecommended %}
+                    <div class="col-md-4">
+                        <div class="card mb-3 shadow-sm">
+                            <img src="{{ m.poster }}" class="card-img-top" alt="{{ m.movieName }}">
+                            <div class="card-body">
+                                <h4 class="card-title">{{ m.movieName }}</h4>
+                                <h6 class="text-muted">Genre: {{ m.genre.genreName }}</h6>
+                                <!-- <p class="card-text">{{ m.description }}</p> -->
+                                <a href="{% url 'movieDetail' pk=m.pk %}" class="btn btn-dark">Watch</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                        <p class="text-muted">No recommendations available at the moment.</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="top-ten my-5">
+        <div class="container">
+            <h2 class="mb-4">Top 10 Movies</h2>
+            <div class="owl-carousel owl-theme">
+                {% for m in movies %}
+                    {% if m.isTopTen %}
+                    <div class="item">
+                        <div class="card shadow-sm">
+                            <img src="{{ m.poster }}" class="card-img-top" alt="{{ m.movieName }}">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{{ m.movieName }}</h5>
+                                <a href="{% url 'movieDetail' pk=m.pk %}" class="btn btn-dark">Watch</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                        <p class="text-muted">No top movies available at the moment.</p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="mt-5 text-center">
+                <a href="/movies/all/" class="btn btn-dark">See All Movies</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
