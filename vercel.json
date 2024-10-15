@@ -1,11 +1,8 @@
 {
   "builds": [
     {
-      "src": "path/to/your/manage.py",
-      "use": "@vercel/python",
-      "config": {
-        "pythonVersion": "3.11"
-      }
+      "src": "manage.py",
+      "use": "@vercel/python"
     }
   ],
   "routes": [
@@ -14,5 +11,4 @@
       "dest": "manage.py"
     }
   ]
-
 }
