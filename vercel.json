@@ -4,7 +4,7 @@
       "src": "manage.py",
       "use": "@vercel/python",
       "config": {
-        "pythonVersion": "3.9"  // Change to your required version
+        "pythonVersion": "3.11"  // Change to your required version
       }
     }
   ],
