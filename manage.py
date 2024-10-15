@@ -27,4 +27,4 @@ def vercel_app(environ, start_response):
     return application(environ, start_response)
 
 # This line is crucial
-handler.app = vercel_app
+# handler.app = vercel_app
